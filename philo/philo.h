@@ -7,21 +7,14 @@
 # include <pthread.h>
 # include <unistd.h>
 
-struct s_philo;
+# define PHILO_EAT		0
+# define PHILO_SLEEP	1
+# define PHILO_FORK		2
+# define PHILO_THINK	3
+# define PHILO_DIED		4
+# define PHILO_OVER		5
 
-typedef struct	s_game
-{
-	struct			timeval tv;
-	int				philo_num;
-	int				ttd;
-	int				tte;
-	int				tts;
-	int				least_eat_num;
-	struct s_philo	*philosophers;
-	pthread_mutex_t somebody_dead_m;
-	pthread_mutex_t write_m;
-	pthread_mutex_t *fork_m;
-}				t_game;
+struct s_game;
 
 typedef struct			s_philo
 {
@@ -32,18 +25,42 @@ typedef struct			s_philo
 	int					eat_cnt;
 	int					lfork;
 	int					rfork;
-	t_game				*game;
+	struct s_game		*game;
 	pthread_mutex_t		mutex;
 	pthread_mutex_t		eat_m; //least_eat_num이 입력되었을 때 한바퀴씩 전체 철학자가 다 먹을때까지 기다리게 하기 위한 뮤텍스
 }						t_philo;
 
+typedef struct	s_game
+{
+	struct			timeval tv;
+	int				philo_num;
+	uint64_t		ttd;
+	uint64_t		tte;
+	uint64_t		tts;
+	int				least_eat_num;
+	int				dead;
+	uint64_t		start;
+	t_philo			*philosophers;
+	pthread_mutex_t somebody_dead_m;
+	pthread_mutex_t write_m;
+	pthread_mutex_t *fork_m;
+}				t_game;
+
+
+int			ft_strlen(char *str);
 int			ft_error(char *msg);
 int			ft_atoi(char *str);
 void		ft_putstr_fd(char *s, int fd);
 int			ft_malloc(void *target, size_t size);
 void		init_philosophers(t_game *game);
 int			init_mutexes(t_game *game);
-int			read_argv(t_game *game, int argc, char *argv[]);
+int			read_argv(t_game *game, int argc, char **argv);
 uint64_t	get_time(void);
+void		ft_putnbr_fd(uint64_t n, int fd);
+void		print_message(t_philo *philo, int type);
+int			clear(t_game *game);
+void		take_forks(t_philo *philo);
+void		put_down_forks(t_philo *philo);
+void		eat(t_philo *philo);
 
 #endif

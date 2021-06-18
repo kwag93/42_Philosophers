@@ -6,11 +6,11 @@
 #    By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/16 13:47:55 by bkwag             #+#    #+#              #
-#    Updated: 2021/06/16 15:58:19 by bkwag            ###   ########.fr        #
+#    Updated: 2021/06/18 15:49:25 by bkwag            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.c utils.c init.c
+SRCS			= main.c utils.c utils2.c init.c message.c eat.c forks.c exit.c
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
@@ -23,7 +23,7 @@ NAME			= philo
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@gcc ${CFLAGS} -o ${NAME} ${OBJS} ${LIBS}
+				@gcc ${CFLAGS} -g -o ${NAME} ${OBJS} ${LIBS}
 
 clean:
 				@$(RM) $(OBJS) $(BONUS_OBJS)
