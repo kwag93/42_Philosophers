@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:47:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 12:01:09 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 12:56:09 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		routine(t_philo *philo)
 	philo->starve_time = philo->last_eat_time + philo->game->ttd;
 	if (pthread_create(&tid, NULL, &monitor, philo) != 0)
 		return (1);
-	pthread_detach(tid); //monitor 메서드를 분리시킨다.(별도로 감시시키기 위해서)
+	pthread_detach(tid);//monitor 메서드를 분리시킨다.(별도로 감시시키기 위해서)
 	while (1)
 	{
 		take_forks(philo);
@@ -33,16 +33,16 @@ int		routine(t_philo *philo)
 
 int		start(t_game *game)
 {
-	int 		i;
+	int		i;
 
 	i = 0;
 	game->start = get_time();
 	while (i < game->philo_num)
 	{
 		game->philosophers[i].pid = fork();
-		if (game->philosophers[i].pid < 0) //에러 처리
+		if (game->philosophers[i].pid < 0)//에러 처리
 			return (1);
-		else if (game->philosophers[i].pid == 0) //자식(철학자 본인)인 경우
+		else if (game->philosophers[i].pid == 0)//자식(철학자 본인)인 경우
 			routine(&game->philosophers[i]);
 		usleep(100);
 		i++;
@@ -50,7 +50,7 @@ int		start(t_game *game)
 	return (0);
 }
 
-int main(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
 	t_game	game;
 	int		i;
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 	sem_wait(game.somebody_dead_m);
 	i = 0;
 	while (i < game.philo_num)
-		kill(game.philosophers[i++].pid, SIGKILL); //다음 철학자 프로세스 순차적으로 죽임
+		kill(game.philosophers[i++].pid, SIGKILL);//다음 철학자 프로세스 순차적으로 죽임
 	clear(&game);
 	return (0);
 }

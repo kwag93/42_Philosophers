@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:50:04 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/18 15:49:01 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 12:55:58 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ uint64_t	get_time(void)
 	gettimeofday(&tv, NULL);
 	return ((tv.tv_sec * (uint64_t)1000) + (tv.tv_usec / 1000)); //초와 마이크로초를 ms로 변환
 }
-int		ft_strlen(char *str)
+
+int			ft_strlen(char *str)
 {
 	int	i;
 
@@ -29,14 +30,14 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+void		ft_putstr_fd(char *s, int fd)
 {
 	if (fd < 0 || !(s))
 		return ;
 	write(fd, s, ft_strlen(s));
 }
 
-void	ft_putnbr_fd(uint64_t n, int fd)
+void		ft_putnbr_fd(uint64_t n, int fd)
 {
 	char	str[13];
 	int		length;

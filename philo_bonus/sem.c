@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 11:21:42 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 11:27:09 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 12:47:33 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ sem_t	*ft_sem_open(char *name, int value)
 
 char	*ft_sem_name(char *sem_name, char *buffer, int idx)
 {
-	int i;
+	int	i;
 
 	i = ft_strcpy(buffer, sem_name);
 	while (idx > 0)

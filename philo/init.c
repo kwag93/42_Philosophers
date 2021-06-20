@@ -6,15 +6,15 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:01:08 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/18 15:39:25 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 12:51:37 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void init_philosophers(t_game *game)
+void		init_philosophers(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < game->philo_num)
@@ -32,14 +32,15 @@ void init_philosophers(t_game *game)
 	}
 }
 
-int init_mutexes(t_game *game)
+int			init_mutexes(t_game *game)
 {
-	int idx;
+	int	idx;
 
- 	pthread_mutex_init(&game->write_m, NULL);
+	pthread_mutex_init(&game->write_m, NULL);
 	pthread_mutex_init(&game->somebody_dead_m, NULL);
 	pthread_mutex_lock(&game->somebody_dead_m);
-	if (!(ft_malloc(&(game->fork_m), sizeof(*(game->fork_m)) * game->philo_num)))
+	if (!(ft_malloc(&(game->fork_m),
+	sizeof(*(game->fork_m)) * game->philo_num)))
 		return (1);
 	idx = 0;
 	while (idx < game->philo_num)
@@ -47,7 +48,7 @@ int init_mutexes(t_game *game)
 	return (0);
 }
 
-int	read_argv(t_game *game, int argc, char **argv)
+int			read_argv(t_game *game, int argc, char **argv)
 {
 	if ((game->philo_num = ft_atoi(argv[1])) < 2)
 		return (1);
@@ -61,7 +62,8 @@ int	read_argv(t_game *game, int argc, char **argv)
 	game->dead = 0;
 	game->fork_m = NULL;
 	game->philosophers = NULL;
-	if (!(ft_malloc(&game->philosophers, sizeof(*(game->philosophers)) * game->philo_num)))
+	if (!(ft_malloc(&game->philosophers,
+	sizeof(*(game->philosophers)) * game->philo_num)))
 		return (1);
 	init_philosophers(game);
 	return (init_mutexes(game));

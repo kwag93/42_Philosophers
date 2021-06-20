@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/20 12:56:19 by bkwag             #+#    #+#             */
+/*   Updated: 2021/06/20 12:56:30 by bkwag            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -30,31 +42,29 @@ typedef struct			s_philo
 	int					idx;
 	pid_t				pid;
 	uint64_t			last_eat_time;
-	uint64_t			starve_time; // ms 값이 커져서 int를 넘어갈 수 있기때문에 uint를 사용중
-	int					is_eating; //bonus에서 각 철학자가 죽었는지 체크하기 위함
+	uint64_t			starve_time;// ms 값이 커져서 int를 넘어갈 수 있기때문에 uint를 사용중
+	int					is_eating;//bonus에서 각 철학자가 죽었는지 체크하기 위함
 	int					eat_cnt;
 	struct s_game		*game;
 	sem_t				*mutex;
-	sem_t				*eat_m; //least_eat_num이 입력되었을 때 한바퀴씩 전체 철학자가 다 먹을때까지 기다리게 하기 위한 뮤텍스
+	sem_t				*eat_m;//least_eat_num이 입력되었을 때 한바퀴씩 전체 철학자가 다 먹을때까지 기다리게 하기 위한 뮤텍스
 }						t_philo;
 
-typedef struct	s_game
+typedef struct			s_game
 {
-	struct			timeval tv;
-	int				philo_num;
-	uint64_t		ttd;
-	uint64_t		tte;
-	uint64_t		tts;
-	int				least_eat_num;
-	int				dead;
-	uint64_t		start;
-	t_philo			*philosophers;
-	sem_t			*somebody_dead_m;
-	sem_t			*write_m;
-	sem_t			*dead_write_m;
-	sem_t			*fork_m;
-}				t_game;
-
+	int					philo_num;
+	uint64_t			ttd;
+	uint64_t			tte;
+	uint64_t			tts;
+	int					least_eat_num;
+	int					dead;
+	uint64_t			start;
+	t_philo				*philosophers;
+	sem_t				*somebody_dead_m;
+	sem_t				*write_m;
+	sem_t				*dead_write_m;
+	sem_t				*fork_m;
+}						t_game;
 
 int			ft_strlen(char *str);
 int			ft_error(char *msg);

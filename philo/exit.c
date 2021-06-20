@@ -6,13 +6,13 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 11:23:37 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/18 11:26:19 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 12:48:05 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	clear(t_game *game)
+int		clear(t_game *game)
 {
 	int i;
 

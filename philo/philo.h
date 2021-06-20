@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/20 12:54:01 by bkwag             #+#    #+#             */
+/*   Updated: 2021/06/20 12:54:03 by bkwag            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -30,22 +42,20 @@ typedef struct			s_philo
 	pthread_mutex_t		eat_m; //least_eat_num이 입력되었을 때 한바퀴씩 전체 철학자가 다 먹을때까지 기다리게 하기 위한 뮤텍스
 }						t_philo;
 
-typedef struct	s_game
+typedef struct			s_game
 {
-	struct			timeval tv;
-	int				philo_num;
-	uint64_t		ttd;
-	uint64_t		tte;
-	uint64_t		tts;
-	int				least_eat_num;
-	int				dead;
-	uint64_t		start;
-	t_philo			*philosophers;
-	pthread_mutex_t somebody_dead_m;
-	pthread_mutex_t write_m;
-	pthread_mutex_t *fork_m;
-}				t_game;
-
+	int					philo_num;
+	uint64_t			ttd;
+	uint64_t			tte;
+	uint64_t			tts;
+	int					least_eat_num;
+	int					dead;
+	uint64_t			start;
+	t_philo				*philosophers;
+	pthread_mutex_t		somebody_dead_m;
+	pthread_mutex_t		write_m;
+	pthread_mutex_t		*fork_m;
+}						t_game;
 
 int			ft_strlen(char *str);
 int			ft_error(char *msg);

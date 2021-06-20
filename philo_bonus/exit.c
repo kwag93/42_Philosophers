@@ -6,16 +6,16 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 11:23:37 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 11:43:43 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 12:55:22 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	clear(t_game *game)
+int		clear(t_game *game)
 {
-	int i;
-	char buffer[50];
+	int		i;
+	char	buffer[50];
 
 	sem_unlink(SEMAPHORE_FORK);
 	sem_unlink(SEMAPHORE_WRITE);
@@ -26,9 +26,9 @@ int	clear(t_game *game)
 		i = 0;
 		while (i < game->philo_num)
 		{
-			ft_sem_name(SEMAPHORE_PHILO, (char*)buffer, i); //철학자가 같은 세마포어를 공유하지 않도록 세마포어 문자열을 일부 수정
+			ft_sem_name(SEMAPHORE_PHILO, (char*)buffer, i);//철학자가 같은 세마포어를 공유하지 않도록 세마포어 문자열을 일부 수정
 			sem_unlink(buffer);
-			ft_sem_name(SEMAPHORE_EAT, (char*)buffer, i); //철학자가 같은 세마포어를 공유하지 않도록 세마포어 문자열을 일부 수정
+			ft_sem_name(SEMAPHORE_EAT, (char*)buffer, i);//철학자가 같은 세마포어를 공유하지 않도록 세마포어 문자열을 일부 수정
 			sem_unlink(buffer);
 			i++;
 		}
