@@ -15,7 +15,7 @@
 void	eat(t_philo *philo)
 {
 	sem_wait(philo->mutex);
-	philo->is_eating = 1;//monitor 용
+	philo->is_eating = 1;
 	philo->last_eat_time = get_time();
 	philo->starve_time = philo->last_eat_time + philo->game->ttd;
 	print_message(philo, PHILO_EAT);
@@ -23,5 +23,5 @@ void	eat(t_philo *philo)
 	philo->eat_cnt++;
 	philo->is_eating = 0;
 	sem_post(philo->mutex);
-	sem_post(philo->eat_m);// 철학자들이 전부 돌때까지 대기
+	sem_post(philo->eat_m);
 }

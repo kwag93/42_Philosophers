@@ -26,9 +26,9 @@ int		clear(t_game *game)
 		i = 0;
 		while (i < game->philo_num)
 		{
-			ft_sem_name(SEMAPHORE_PHILO, (char*)buffer, i);//철학자가 같은 세마포어를 공유하지 않도록 세마포어 문자열을 일부 수정
+			ft_sem_name(SEMAPHORE_PHILO, (char*)buffer, i);
 			sem_unlink(buffer);
-			ft_sem_name(SEMAPHORE_EAT, (char*)buffer, i);//철학자가 같은 세마포어를 공유하지 않도록 세마포어 문자열을 일부 수정
+			ft_sem_name(SEMAPHORE_EAT, (char*)buffer, i);
 			sem_unlink(buffer);
 			i++;
 		}

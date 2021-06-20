@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 10:33:09 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 12:54:26 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/20 13:11:56 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,15 @@ char	*get_message(int type)
 void	print_message(t_philo *philo, int type)
 {
 	pthread_mutex_lock(&philo->game->write_m);
-	if (!philo->game->dead)//누가 죽지 않았으면
+	if (!philo->game->dead)
 	{
-		ft_putnbr_fd(get_time() - philo->game->start, 1);//실행 후 지난 시간
+		ft_putnbr_fd(get_time() - philo->game->start, 1);
 		ft_putstr_fd(" ", 1);
 		if (type != PHILO_OVER)
 			ft_putnbr_fd(philo->idx + 1, 1);
-		if (type == PHILO_DIED || type == PHILO_OVER)//시뮬레이션이 끝난 경우
+		if (type == PHILO_DIED || type == PHILO_OVER)
 			philo->game->dead = 1;
 		write(1, get_message(type), ft_strlen(get_message(type)));
 	}
 	pthread_mutex_unlock(&philo->game->write_m);
 }
-
