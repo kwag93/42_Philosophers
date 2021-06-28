@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 11:23:37 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 12:55:22 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/28 14:46:07 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		clear(t_game *game)
 	int		i;
 	char	buffer[50];
 
+	usleep(100);
 	sem_unlink(SEMAPHORE_FORK);
 	sem_unlink(SEMAPHORE_WRITE);
 	sem_unlink(SEMAPHORE_DEAD);

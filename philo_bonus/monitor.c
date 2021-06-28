@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 11:33:23 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 12:54:53 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/28 14:46:34 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		*monitor(void *arg)
 			return ((void *)0);
 		}
 		sem_post(philo->mutex);
-		usleep(1000);
+		usleep(900);
 	}
 }
 
