@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:01:08 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 12:51:37 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/06/28 16:00:07 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int			init_mutexes(t_game *game)
 
 int			read_argv(t_game *game, int argc, char **argv)
 {
-	if ((game->philo_num = ft_atoi(argv[1])) < 2)
-		return (1);
+	if ((game->philo_num = ft_atoi(argv[1])) < 1)
+		return (2);
 	game->ttd = ft_atoi(argv[2]);
 	game->tte = ft_atoi(argv[3]);
 	game->tts = ft_atoi(argv[4]);
