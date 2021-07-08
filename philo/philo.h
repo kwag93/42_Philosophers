@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 12:54:01 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 13:28:24 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/07/08 10:42:23 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PHILO_H
 
 # include <sys/time.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <pthread.h>
 # include <unistd.h>

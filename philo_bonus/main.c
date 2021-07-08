@@ -6,7 +6,7 @@
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:47:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/28 16:00:50 by bkwag            ###   ########.fr       */
+/*   Updated: 2021/07/08 10:39:54 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		main(int argc, char *argv[])
 
 	if (argc < 5 || argc > 6)
 		return (ft_error("bad argument\n"));
-	if (read_argv(&game, argc, argv))
+	if ((ret = read_argv(&game, argc, argv)))
 	{
 		if (ret != 2)
 			clear(&game);
