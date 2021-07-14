@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdio.h>
 
 void		*monitor_least(void *arg)
 {
@@ -118,6 +119,7 @@ int			main(int argc, char *argv[])
 	}
 	pthread_mutex_lock(&game.somebody_dead_m);
 	pthread_mutex_unlock(&game.somebody_dead_m);
+	printf("hi\n");
 	clear(&game);
 	return (0);
 }

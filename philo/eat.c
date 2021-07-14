@@ -19,7 +19,7 @@ void	eat(t_philo *philo)
 	philo->last_eat_time = get_time();
 	philo->starve_time = philo->last_eat_time + philo->game->ttd;
 	print_message(philo, PHILO_EAT);
-	usleep(philo->game->tte * 1000);
+	delay_time(philo->game->tte);
 	philo->eat_cnt++;
 	philo->is_eating = 0;
 	pthread_mutex_unlock(&philo->mutex);

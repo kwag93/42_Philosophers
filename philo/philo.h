@@ -71,5 +71,6 @@ int						clear(t_game *game);
 void					take_forks(t_philo *philo);
 void					put_down_forks(t_philo *philo);
 void					eat(t_philo *philo);
+void					delay_time(uint64_t time);
 
 #endif

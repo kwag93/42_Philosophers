@@ -25,5 +25,5 @@ void	put_down_forks(t_philo *philo)
 	print_message(philo, PHILO_SLEEP);
 	pthread_mutex_unlock(&philo->game->fork_m[philo->lfork]);
 	pthread_mutex_unlock(&philo->game->fork_m[philo->rfork]);
-	usleep(philo->game->tts * 1000);
+	delay_time(philo->game->tts);
 }
